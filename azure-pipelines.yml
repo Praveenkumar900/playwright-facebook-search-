@@ -1,0 +1,32 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  # 1️⃣ Checkout code
+  - checkout: self
+
+  # 2️⃣ Install Node.js 18
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Install Node.js 18'
+
+  # 3️⃣ Install dependencies
+  - script: |
+      node --version
+      npm --version
+      npm install
+    displayName: 'Install NPM dependencies'
+
+  # 4️⃣ Install Playwright browsers
+  - script: |
+      npx playwright install --with-deps
+    displayName: 'Install Playwright Browsers'
+
+  # 5️⃣ Run Playwright tests
+  - script: |
+      npm test
+    displayName: 'Run Playwright Tests'
