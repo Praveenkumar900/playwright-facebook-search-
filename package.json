@@ -1,0 +1,12 @@
+{
+  "name": "playwright-facebook-search",
+  "version": "1.0.0",
+  "description": "Simple Playwright automation example",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.41.0"
+  }
+}
